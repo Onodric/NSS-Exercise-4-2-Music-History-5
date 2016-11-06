@@ -1,0 +1,39 @@
+{
+  "songs": [
+    {
+      "title": "The Walk",
+      "duration": "3:17",
+      "artist": "Mayer Hawthorne",
+      "album": "How Do You Do",
+      "genre": "Pop"
+    },
+    {
+      "title": "Medicine",
+      "duration": "3:17",
+      "artist": "Grace Potter",
+      "album": "Grace Potter and the Nocturnals",
+      "genre": "Pop"
+    },
+    {
+      "title": "Legs",
+      "duration": "3:17",
+      "artist": "ZZ Top",
+      "album": "Eliminator",
+      "genre": "Rock"
+    },
+    {
+      "title": "Mr. Bluesky",
+      "duration": "7:13",
+      "artist": "Electric Light Orchestra",
+      "album": "Greatest Hits",
+      "genre": "Pop"
+    },
+    {
+      "title": "Wish You Were Here",
+      "duration": "5:27",
+      "artist": "Pink Floyd",
+      "album": "Wish You Were Here",
+      "genre": "Rock"
+    }
+  ]
+}

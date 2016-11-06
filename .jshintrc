@@ -1,0 +1,5 @@
+{
+  "predef": [ "document", "jQuery", "$", "console", "SandwichMaker" ],
+  "esversion": 6,
+  "globalstrict": true
+}

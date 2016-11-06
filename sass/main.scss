@@ -1,0 +1,285 @@
+@import '../../../../normalize';
+
+/* GENERAL ****************************************** */
+
+body {
+  width: 75%;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #ffb4b0;
+  border: 2px solid black;
+  margin: 1em 0;
+  padding: .5em .5em .5em 1em;
+  font-weight: 600;
+}
+
+ul {
+  padding-left: 0; 
+}
+
+li {
+  display: inline-block;
+  border-right: 2px solid black;
+  list-style: none;
+  padding: 0 .35em 0 .25em;
+  margin-left: 0;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+h2 {
+  color: #785616;
+  font-size: 2em;
+  font-weight: 400;
+  margin: 0;
+}
+
+aside label {
+  display: block;
+  margin: .1em 0 .5em 0;
+  font-weight: normal;
+  font-size: 1.2em;
+}
+
+aside select {
+  width: 100%;
+  padding: .25em;
+  margin-bottom: 1.5em;
+  border-radius: .5em;
+}
+
+fieldset {
+  padding-left: 0;
+  border: none;
+}
+
+fieldset label {
+  display: inline-block;
+  width: 37%;
+  font-weight: normal;
+}
+
+/* CLASSES ****************************************** */
+
+.morer,
+.deleter {
+  margin: 1em;
+  border-radius:.2em;
+  background: #ecdaad;
+  box-shadow: 0 3px 5px rgba(30,00,30,.7);
+}
+
+.deleter {
+  top: .5em;
+  margin-bottom: 3em;
+  float: right;
+}
+
+.morer {
+  position: relative;
+  bottom: 0;
+}
+
+
+.song-title {
+  display: inline-block;
+}
+
+.duration {
+  width: 9%;
+  display: inline-block;
+  margin: 0;
+  text-align: right;
+}
+
+.selected {
+  text-decoration: none;
+  color: black;
+}
+
+.hidden{
+  display: none;
+}
+
+.card {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 1.5em;
+  border-bottom: 3px solid rgba(100,100,100,.5);
+}
+
+.card h2{
+  width: 90%;
+  display: inline-block;
+}
+
+
+.card ul {
+  display: inline-block;
+}
+
+.card li {
+  padding: 0 1em 0 1em;
+}
+
+.card li:first-child {
+  padding: 0 1em 0 .25em;
+}
+
+.sidebar {
+  width: 90%;
+  margin: 1em auto;
+}
+
+.btn-filter {
+  width: 70%;
+  font-size: 1.2em;
+  border-radius: .5em;
+  margin: .5em 15%;
+}
+
+/* IDs ********************************************** */
+
+#chooser {
+  width: 23.5%;
+  float: left;
+  background-color: #4dd7fa;
+  border: 2px solid black;
+  height: 500px;
+}
+
+#song-adder {
+  width: 60%;
+  margin: auto;
+}
+
+#user-profile {
+  background: #131f16;
+  color: #d5d2d8;
+  width: 80%;
+  padding: 1em;
+  margin: auto;
+}
+
+#view-songs {
+  width: 74%;
+  float: right;
+  background-color: #fefac0;
+  border: 2px solid black;
+  height: 500px;
+  overflow: auto;
+}
+
+#song-adder form {
+  width: 90%;
+  margin: 1em auto;
+  font-size: 1.4em;
+}
+
+#song-adder label {
+  margin-right: 1em;
+}
+
+#song-adder input,
+#song-adder select,
+#song-adder button {
+  padding: .1em;
+  font-size: 1.1em;
+  width: 95%;
+  border-radius: .25em;
+  margin: 2.5%;
+}
+
+
+/* sidebar-range slider****************************** */
+
+input[type=range].sidebar-range {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: .5em 0 2em 0;
+}
+input[type=range].sidebar-range:focus {
+  outline: none;
+}
+input[type=range].sidebar-range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 12px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  background: #888;
+  border-radius: 0;
+  border: 1px solid #010101;
+}
+input[type=range].sidebar-range::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border: 2px solid #000000;
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7px;
+}
+input[type=range].sidebar-range:focus::-webkit-slider-runnable-track {
+  background: #333;
+}
+input[type=range].sidebar-range::-moz-range-track {
+  width: 100%;
+  height: 12px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  background: #888;
+  border-radius: 0;
+  border: 1px solid #010101;
+}
+input[type=range].sidebar-range::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border: 2px solid #000000;
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range].sidebar-range::-ms-track {
+  width: 100%;
+  height: 12px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range].sidebar-range::-ms-fill-lower {
+  background: #888;
+  border: 1px solid #010101;
+  border-radius: 0;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+input[type=range].sidebar-range::-ms-fill-upper {
+  background: #777;
+  border: 1px solid #010101;
+  border-radius: 0;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+input[type=range].sidebar-range::-ms-thumb {
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border: 2px solid #000000;
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
+  background: #ffffff;
+  cursor: pointer;
+  height: 12px;
+}
+input[type=range].sidebar-range:focus::-ms-fill-lower {
+  background: #888;
+}
+input[type=range].sidebar-range:focus::-ms-fill-upper {
+  background: #fff;
+}
+

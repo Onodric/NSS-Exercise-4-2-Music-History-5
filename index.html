@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Music History XHR</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="author" href="humans.txt">
+<body>
+  <main id="mainHistory">
+    <header>
+      <nav class="nav-bar">
+        <ul>
+          <li><a href="#view-songs" id="viewSongs" class="selected">View Music</a></li>
+          <li><a href="#song-adder" id="addSongs">Add Music</a></li>
+          <li><a href="#user-profile" id="userProfile">Profile</a></li>
+        </ul>
+      </nav>
+    </header>
+    <aside id="chooser">
+      <div class="sidebar">
+        <label for="song-length">Song Length:</label>
+        <input type="range" name="song-length" id="song-length" class="sidebar-range">
+
+        <select id="artist" name="artist" size="1">
+          <option disabled selected>Artist</option>
+        </select>
+
+        <select id="album" name="album" size="1">
+          <option disabled selected>Album</option>
+        </select>
+        
+        <select id="genre" name="genre" size="1">
+          <option disabled selected>Genre</option>          
+        </select>
+
+        <button type="submit" class="btn-filter">Filter</button>
+      </div><!-- end of .sidebar -->
+    </aside><!-- end of #chooser -->
+    
+    <section id="view-songs">
+
+    </section><!-- end of #view-songs -->
+
+    <section id="song-adder" class="hidden">
+      <form>
+<!-- Add the ability to add a json -->
+<!-- input type text placeholder Enter the location of a valid song list (JSON) -->
+<!-- ADD JSON Btn -->
+        <input type="text" name="add-title" id="add-title" placeholder="Song Title">
+        <input type="text" name="add-duration" id="add-duration" placeholder="Song Duraton [hh:]mm:ss">
+        <input type="text" name="add-artist" id="add-artist" placeholder="Artist">
+        <input type="text" name="add-album" id="add-album" placeholder="Album">
+        <input type="text" name="add-genre" id="add-genre" placeholder="Genre">
+        <button id="add-btn">Add Song</button>
+      </form>
+    </section><!-- end of #song-adder -->
+
+    <section id="user-profile" class="hidden">
+      <p>I am a generic User Profile</p>
+    </section><!-- end of #user-profile -->
+  </main>
+  
+  <script src="javascripts/shredder.js"></script>
+  <script src="javascripts/mailRoom.js"></script>
+  <script src="javascripts/dataParser.js"></script>
+  <script src="javascripts/domGuy.js"></script>
+  <script src="javascripts/dataRequester.js"></script>
+  <script src="javascripts/main.js"></script>
+</body>
+</html>
