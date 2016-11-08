@@ -13,8 +13,6 @@ var MusicHistory = (function(oldMH){
   };
 
   oldMH.addArray = function (arr) {
-    // let tempSongs = arr;
-// This is the callback function! Calls MusicHistory.addSong in a loop
     for (let i = 0; i < arr.length; i++ ){
       MusicHistory.addSong(arr[i]);
     }

@@ -20,7 +20,13 @@ var MusicHistory = (function(oldMH){
     $("#view-songs").append($newCard);
     $newCard.click( (event) => {
       MusicHistory.deleSong(event);
+// Add more button at the bottom of dom if there are more JSONs
     });
+    $("#moreSongs").remove();
+    if (JSON_AVAILABLE > 0){
+      $('<button>', {id: "moreSongs", class: "morer"}).text('Add more songs from URL...').appendTo($INSERT);
+      addBtnEar();
+    }
   };
   
 
@@ -34,10 +40,10 @@ var MusicHistory = (function(oldMH){
 // Call writeSelect
       MusicHistory.writeSelect();
 // Add more button at the bottom of dom if there are more JSONs
-    if (JSON_AVAILABLE > 0){
-      $('<button>', {id: "moreSongs", class: "morer"}).text('Add more songs from URL...').appendTo($INSERT);
-      addBtnEar();
-    }
+    // if (JSON_AVAILABLE > 0){
+    //   $('<button>', {id: "moreSongs", class: "morer"}).text('Add more songs from URL...').appendTo($INSERT);
+    //   addBtnEar();
+    // }
   };
 
   oldMH.deleSong = function(event){
@@ -65,9 +71,9 @@ var MusicHistory = (function(oldMH){
     let $artistSel = $("#artist");
     let $genreSel = $("#genre");
     
-    $albumSel.html('').append($('<option>', {class: "disabled selected"}).text("Album"));
-    $artistSel.html('').append($('<option>', {class: "disabled selected"}).text("Artist"));
-    $albumSel.html('').append($('<option>', {class: "disabled selected"}).text("Genre"));
+    $albumSel.html('').append($('<option>', { disabled: true, selected: true}).text("Album"));
+    $artistSel.html('').append($('<option>', {disabled: true, selected: true}).text("Artist"));
+    $genreSel.html('').append($('<option>', {disabled: true, selected: true}).text("Genre"));
 
 // Loop through each array, and get the results
     for (let j = 0; j < albumArr.length; j++){
