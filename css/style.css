@@ -3,6 +3,7 @@
  * 1. Change the default font family in all browsers (opinionated).
  * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
  */
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC|Permanent+Marker|Proza+Libre|Raleway");
 html {
   font-family: sans-serif;
   /* 1 */
@@ -364,6 +365,45 @@ textarea {
   font: inherit;
   /* 2 */ }
 
+body {
+  width: 100%;
+  font: 1em "Raleway", sans-serif; }
+
+#wrapper {
+  width: 90%;
+  max-width: 1280px;
+  background: #efd6ff;
+  padding: 8em 2.5% 2em 2.5%;
+  min-height: 100vh;
+  margin: 0 auto; }
+  #wrapper h1, #wrapper h2, #wrapper h3, #wrapper h4, #wrapper h5 {
+    font-family: "Permanent Marker", cursive; }
+
+#page-head {
+  width: 100%;
+  position: fixed;
+  background: #94ff2c;
+  color: #6e3dcc;
+  box-shadow: inset 0 0 3em #79997e; }
+  #page-head h1 {
+    color: #56cc6a;
+    font-size: 4em;
+    font-weight: bolder;
+    margin-bottom: -.25em;
+    margin-top: .5em;
+    text-shadow: 0.05em -0.05em 0 #6e3dcc; }
+
+#page-foot {
+  width: 100%;
+  background: #94ff2c;
+  color: #6e3dcc;
+  box-shadow: inset 0 0 3em #79997e;
+  text-align: center;
+  padding: 1em; }
+  #page-foot p {
+    font-weight: bold;
+    margin: auto; }
+
 /* GENERAL ****************************************** */
 body {
   width: 75%;
@@ -371,17 +411,19 @@ body {
 
 header {
   background-color: #ffb4b0;
-  border: 2px solid black;
+  border: 4px outset rgba(50, 50, 50, 0.5);
   margin: 1em 0;
   padding: .5em .5em .5em 1em;
-  font-weight: 600; }
+  font-weight: 600;
+  border-radius: 0.2em;
+  box-shadow: 0 3px 10px rgba(30, 0, 30, 0.7), inset 0 3px 5px rgba(30, 0, 30, 0.7); }
 
 ul {
   padding-left: 0; }
 
 li {
   display: inline-block;
-  border-right: 2px solid black;
+  border-right: 4px outset rgba(50, 50, 50, 0.5);
   list-style: none;
   padding: 0 .35em 0 .25em;
   margin-left: 0; }
@@ -405,23 +447,15 @@ aside select {
   width: 100%;
   padding: .25em;
   margin-bottom: 1.5em;
-  border-radius: .5em; }
-
-fieldset {
-  padding-left: 0;
-  border: none; }
-
-fieldset label {
-  display: inline-block;
-  width: 37%;
-  font-weight: normal; }
+  border-radius: 0.2em;
+  box-shadow: 0 3px 10px rgba(30, 0, 30, 0.7), inset 0 3px 5px rgba(30, 0, 30, 0.7); }
 
 /* CLASSES ****************************************** */
 .morer,
 .deleter {
   margin: 1em;
-  border-radius: .2em;
   background: #ecdaad;
+  border-radius: .2em;
   box-shadow: 0 3px 5px rgba(30, 0, 30, 0.7); }
 
 .deleter {
@@ -483,27 +517,35 @@ fieldset label {
   width: 23.5%;
   float: left;
   background-color: #4dd7fa;
-  border: 2px solid black;
-  height: 500px; }
+  border: 4px outset rgba(50, 50, 50, 0.5);
+  height: 500px;
+  border-radius: 0.2em;
+  box-shadow: 0 3px 10px rgba(30, 0, 30, 0.7), inset 0 3px 5px rgba(30, 0, 30, 0.7); }
 
 #song-adder {
   width: 60%;
-  margin: auto; }
+  margin: auto;
+  border-radius: 0.2em;
+  box-shadow: 0 3px 10px rgba(30, 0, 30, 0.7), inset 0 3px 5px rgba(30, 0, 30, 0.7); }
 
 #user-profile {
   background: #131f16;
   color: #d5d2d8;
   width: 80%;
   padding: 1em;
-  margin: auto; }
+  margin: auto;
+  border-radius: 0.2em;
+  box-shadow: 0 3px 10px rgba(30, 0, 30, 0.7), inset 0 3px 5px rgba(30, 0, 30, 0.7); }
 
 #view-songs {
   width: 74%;
   float: right;
   background-color: #fefac0;
-  border: 2px solid black;
+  border: 4px outset rgba(50, 50, 50, 0.5);
   height: 500px;
-  overflow: auto; }
+  overflow: auto;
+  border-radius: 0.2em;
+  box-shadow: 0 3px 10px rgba(30, 0, 30, 0.7), inset 0 3px 5px rgba(30, 0, 30, 0.7); }
 
 #song-adder form {
   width: 90%;
