@@ -6,49 +6,26 @@ var MusicHistory = (function(oldMH){
 
   oldMH.writeSong= function(obj, index){
 // Writes the correct card by getting info from obj
-    let newElement2;
-    let newCard = document.createElement("article");
-    let newElement1 = document.createElement('h2');
-
-    newCard.classList.add('card');
 // Create unique id for the card using title
-    newElement1.setAttribute('id', obj.title + index);
-    newElement1.innerHTML = obj.title;
-    newCard.append(newElement1);
-    newElement1 = document.createElement('h5');
-    newElement1.classList.add('duration');
-    newElement1.innerHTML = obj.duration;
-    newCard.append(newElement1);
-    newElement1 = document.createElement('ul');
-    newElement2 = document.createElement('li');
-    newElement2.classList.add('descriptor');
-    newElement2.innerHTML = obj.artist;
-    newElement1.append(newElement2);
-    newElement2 = document.createElement('li');
-    newElement2.classList.add('descriptor');
-    newElement2.innerHTML = obj.album;
-    newElement1.append(newElement2);
-    newElement2 = document.createElement('li');
-    newElement2.classList.add('descriptor');
-    newElement2.innerHTML = obj.genre;
-    newElement1.append(newElement2);
-    newCard.append(newElement1);
-    newElement1 = document.createElement("button");
-    newElement1.classList.add('deleter');
+    let $newCard = $("<article>", {class: "card", id: obj.title + index});
+    $('<h2>').text(obj.title).appendTo($newCard);
+    $("<h5>", {class: "duration"}).text(obj.duration).appendTo($newCard);
+    let $newElement1 = $("<ul>");
+    $("<li>", {class: "descriptor"}).text(obj.artist).appendTo($newElement1);
+    $("<li>", {class: "descriptor"}).text(obj.album).appendTo($newElement1);
+    $("<li>", {class: "descriptor"}).text(obj.genre).appendTo($newElement1);
+    $newElement1.appendTo($newCard);
 // Create button id based on index (in the main array)
-    newElement1.setAttribute('id', index);
-    newElement1.innerHTML = "Delete";
-    newCard.append(newElement1);
-// inserts the card at the end of Parent
-    document.getElementById('view-songs').append(newCard);
-// add an event listener!
-    document.getElementById(index).addEventListener("click", function(event){
+    $("<button>", {class: "deleter", id: index}).text('Delete').appendTo($newCard);
+    $("#view-songs").append($newCard);
+    $newCard.click( (event) => {
       MusicHistory.deleSong(event);
     });
   };
+  
 
   oldMH.writeArray = function(arr){
-    INSERTPLACE.innerHTML = '';
+    $INSERT.html('');
     JSON_AVAILABLE--;
 // Calls writesong in a loop over the MusicHistory.getsongArray()
     for (let i = 0; i < arr.length; i++){
@@ -58,26 +35,23 @@ var MusicHistory = (function(oldMH){
       MusicHistory.writeSelect();
 // Add more button at the bottom of dom if there are more JSONs
     if (JSON_AVAILABLE > 0){
-      let newEl = document.createElement("button");
-      newEl.setAttribute("id", "moreSongs");
-      newEl.setAttribute("class", "morer");
-      newEl.innerHTML = "Add More Songs from URL...";
-      document.getElementById("view-songs").append(newEl);
+      $('<button>', {id: "moreSongs", class: "morer"}).text('Add more songs from URL...').appendTo($INSERT);
       addBtnEar();
     }
   };
 
   oldMH.deleSong = function(event){
-    let tempArr = document.getElementsByClassName('deleter');    
+// check if event target is a button named delete
+    if(event.target.classList.contains('deleter')){
 // Deletes from array (calls removeSong)
-    MusicHistory.removeSong(event);
+      MusicHistory.removeSong(event);
 // Deletes event.target.parent of button
-    event.target.parentElement.remove();
+      event.target.parentElement.remove();
 // Refactors button id's
-    console.log("the buttons: ", tempArr);
-    console.log("Start i here: ", parseInt(event.target.id));
-    for (let i = parseInt(event.target.id); i < tempArr.length; i++){
-      tempArr[i].setAttribute('id', i);
+      let tempArr = document.getElementsByClassName('deleter');    
+      for (let i = parseInt(event.target.id); i < tempArr.length; i++){
+        tempArr[i].setAttribute('id', i);
+      }
     }
   };
 
@@ -87,27 +61,14 @@ var MusicHistory = (function(oldMH){
     let artistArr = MusicHistory.getSelectList("artist");
     let genreArr = MusicHistory.getSelectList("genre");
 // Start from scratch
-    let tempAlbumSel = document.getElementById("album");
-    let tempArtistSel = document.getElementById("artist");
-    let tempGenreSel = document.getElementById("genre");
+    let $albumSel = $("#album");
+    let $artistSel = $("#artist");
+    let $genreSel = $("#genre");
     
-    tempAlbumSel.innerHTML = '';
-    let newEl = document.createElement("option");
-    newEl.classList.add("disabled", "selected");
-    newEl.innerHTML = "Album";
-    tempAlbumSel.append(newEl);
-    
-    tempArtistSel.innerHTML = '';
-    newEl = document.createElement("option");
-    newEl.classList.add("disabled", "selected");
-    newEl.innerHTML = "Artist";
-    tempArtistSel.append(newEl);
+    $albumSel.html('').append($('<option>', {class: "disabled selected"}).text("Album"));
+    $artistSel.html('').append($('<option>', {class: "disabled selected"}).text("Artist"));
+    $albumSel.html('').append($('<option>', {class: "disabled selected"}).text("Genre"));
 
-    tempGenreSel.innerHTML = '';
-    newEl = document.createElement("option");
-    newEl.classList.add("disabled", "selected");
-    newEl.innerHTML = "Genre";
-    tempGenreSel.append(newEl);
 // Loop through each array, and get the results
     for (let j = 0; j < albumArr.length; j++){
 // Call buildOption
@@ -124,16 +85,13 @@ var MusicHistory = (function(oldMH){
   };
 
   oldMH.buildOption = function(string, listName, id){
-    let INJECT = document.getElementById(id);
+    let inject = document.getElementById(id);
     artist = [];
     album = [];
     genre = [];
     if (!listName.includes(string)){
       listName.push(string);
-      let newOpt = document.createElement("option");
-      newOpt.innerHTML = string;
-// Add to correct select list
-      INJECT.append(newOpt);
+      $('<option>').text(string).appendTo('#' + id);
     }
   };
 

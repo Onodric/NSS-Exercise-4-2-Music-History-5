@@ -24,7 +24,6 @@ var MusicHistory = (function(oldMH){
   oldMH.removeSong = function (event) {
 // Removes the specified song from the internal array
     let tempIndex = event.target.id;
-    console.log("Removing: ", event.target.id);
     songArray.splice(tempIndex, 1);
 // Now just rebuild the select lists
     MusicHistory.writeSelect();

@@ -5,19 +5,17 @@ var MusicHistory = (function(oldMH){
 // PASS IT: DataURL as string and a callbackFn
 // OFFER IT TO: the internal array holder and dom builder
   oldMH.loadJSON = function(jsonURL, cbFunc){
-    let myRequest = new XMLHttpRequest();
-    myRequest.open("GET", jsonURL);
-    myRequest.send();
-
-    myRequest.addEventListener("error", function () {
-      alert("There was an error:", event.target);
+    $.ajax({
+      url: jsonURL,
+    })
+    .done( (data) => {
+      cbFunc(data.songs);
+    })
+    .fail( () => {
+    })
+    .always( () => {
     });
-  
-    myRequest.addEventListener("load", function () {
-      let songsLoaded = JSON.parse(this.response).songs;
-      cbFunc(songsLoaded);
-    });  
-  };
+  };  
 
   return oldMH;
 

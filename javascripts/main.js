@@ -1,5 +1,5 @@
 "use strict";
-const INSERTPLACE = document.getElementById("view-songs");
+const $INSERT = $("#view-songs");
 let JSON_AVAILABLE = 2;
 
 // Choose a "page" listeners
@@ -64,7 +64,7 @@ document.getElementById("add-btn").addEventListener("click", function(){
   newSong.genre = document.getElementById("add-genre").value;
   // newSong += '</li></ul></article>';
   MusicHistory.addSong(newSong);
-  MusicHistory.writeSong(newSong, INSERTPLACE);
+  MusicHistory.writeSong(newSong, $INSERT);
   MusicHistory.writeSelect();
 });
 
@@ -80,13 +80,12 @@ document.getElementById("add-btn").addEventListener("click", function(){
 MusicHistory.loadJSON("data/songs.JSON", MusicHistory.addArray);
 
 function addBtnEar(){
-  document.getElementById("moreSongs").addEventListener("click", function(event) {
+  $("#moreSongs").click( (event) => {
     loadMoreNow(event);
   });
 }
-
+  
 function loadMoreNow(event){
-  console.log("clicky: ", event.target);
   event.target.remove();
   MusicHistory.loadJSON("data/more-songs.JSON", MusicHistory.addArray);
 }
